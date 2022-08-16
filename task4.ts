@@ -1,7 +1,7 @@
 import converter from 'json-2-csv';
 import fs from 'fs';
 
-export const task4 = async (data: any[]): Promise<void> => {
+export const task4 = async (data: any[]): Promise<String> => {
     console.log(`Saving csv data for task 4`);
 
     const options = {
@@ -14,5 +14,5 @@ export const task4 = async (data: any[]): Promise<void> => {
       console.log('Error formatting data.');
     }
 
-    const outputFile = fs.writeFileSync(`./csv/output.csv`, csv);
+    fs.writeFileSync(`./csv/output.csv`, csv);
 };
