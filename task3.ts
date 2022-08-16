@@ -1,4 +1,3 @@
-import { Topic } from './types';
 import { JSONPath } from 'jsonpath-plus';
 import { Data, Year, Subject, Lesson } from './types';
 
@@ -24,8 +23,8 @@ export const task3 = (data: Data): any[] => {
         if (lesson.years.filter(y => y.name === year.name).length && lesson.subjects.filter(s => s.name === subject.name).length) {
           transformedData.push({
             "Year": `Year ${year.name}`,
-            "Subject": subject.name,
-            "Lesson": lesson.name
+            "Subject": toProperCase(subject.name),
+            "Lesson": toProperCase(lesson.name)
           })
         }
       }
