@@ -16,7 +16,7 @@ export const task3 = (data: Data): any[] => {
   const years: Year[] = removeDuplicates(JSONPath({ path: `$..years[*]`, json: data }), 'name') as Year[];
   for (const year of years) {
         
-    const subjects: Subject[] = removeDuplicates(JSONPath({ path: `$..lessons[?(@.years[0].name=='1')].subjects[*]`, json: data }), 'name') as Subject[];
+    const subjects: Subject[] = removeDuplicates(JSONPath({ path: `$..lessons[?(@.years[0].name=='${year.name}')].subjects[*]`, json: data }), 'name') as Subject[];
     for (const subject of subjects) {
             
       const lessons: Lesson[] = JSONPath({ path: `$..lessons[*]`, json: data }) as Lesson[];
